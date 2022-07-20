@@ -1754,12 +1754,17 @@ tile(Monitor *m)
 				ty += HEIGHT(c) + m->gappx;
 		}
 
-	if (n == 1 && selmon->sel->CenterThisWindow)
+	/* Initialize client first window size to be centered */
+	/* Original values are 0.5 instead of 0.9 */
+	/* static void resizeclient(Client *c, int x, int y, int w, int h); */
+	if (n == 1 && selmon->sel->CenterThisWindow) {
         resizeclient(selmon->sel,
-                (selmon->mw - selmon->mw * 0.5) / 2,
-                (selmon->mh - selmon->mh * 0.5) / 2,
-                selmon->mw * 0.5,
-                selmon->mh * 0.5);
+            (selmon->mw - selmon->mw * 0.5) / 2,
+            (selmon->mh - selmon->mh * 0.9) / 2,
+            (selmon->mw * 0.5),
+            (selmon->mh * 0.9)
+		);
+	}
 }
 
 void

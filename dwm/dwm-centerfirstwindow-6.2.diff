@@ -56,12 +56,12 @@ diff -up dwm-6.2-orig/dwm.c dwm-6.2-modd/dwm.c
  			ty += HEIGHT(c);
  		}
 +
-+	if (n == 1 && selmon->sel->CenterThisWindow)
++	if (n == 1 && selmon->sel->CenterThisWindow){ 
 +        resizeclient(selmon->sel,
 +                (selmon->mw - selmon->mw * 0.5) / 2,
-+                (selmon->mh - selmon->mh * 0.5) / 2,
-+                selmon->mw * 0.5,
-+                selmon->mh * 0.5);
++                (selmon->mh - selmon->mh * 0.9) / 2,
++                (selmon->mw * 0.5),
++                (selmon->mh * 0.9))};
  }
  
  void
