@@ -38,9 +38,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class      	     instance    title    tags mask     isfloating   CenterThisWindow?     monitor */
+	{ "st",              NULL,       NULL,    0,            0,     	     1,		           -1 },
+	{ "Gimp",            NULL,       NULL,    0,            1,           0,                    -1 },
+	{ "Firefox",         NULL,       NULL,    1 << 8,       0,           0,                    -1 },
 };
 
 /* layout(s) */
@@ -80,12 +81,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_s,      spawn,          SHCMD("flameshot gui")},
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox")},
-	{ MODKEY,                       XK_o,      spawn,          SHCMD("obs")},
-	{ MODKEY,						XK_z,      spawn,          SHCMD("zoom")},
-	{ MODKEY,             			XK_a,      spawn,          SHCMD("authy")},
-	{ MODKEY,             			XK_f,      spawn,          SHCMD("caprine")},
-	{ MODKEY,             			XK_e,      spawn,          SHCMD("drawio.AppImage")},
-	{ MODKEY,             			XK_r,      spawn,          SHCMD("stoplight.AppImage")},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
