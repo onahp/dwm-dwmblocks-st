@@ -821,10 +821,14 @@ tile(Monitor *m)
 		}
 	}
 
+	/* Added centerfirstwindow patch into vanity due to removal of tile from dwm.c from vanitygap patch */
 	if (n == 1 && selmon->sel->CenterThisWindow){ 
-        resizeclient(selmon->sel,
+        resizeclient
+			(
+				(selmon->sel),
                 (selmon->mw - selmon->mw * 0.5) / 2,
                 (selmon->mh - selmon->mh * 0.9) / 2,
                 (selmon->mw * 0.5),
-                (selmon->mh * 0.9))};
+                (selmon->mh * 0.9));
+	};
 }
