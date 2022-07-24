@@ -893,12 +893,13 @@ focusstack(const Arg *arg)
 {
 	int i = stackpos(arg);
 	Client *c, *p;
-	if(i < 0) {
-		for(p = NULL, c = selmon->clients; c && (i || !ISVISIBLE(c));
-			i -= ISVISIBLE(c) ? 1 : 0, p = c, c = c->next);
-		focus(c ? c : p);
-		restack(selmon);
-	}
+	if(i < 0)
+		return;
+	for(p = NULL, c = selmon->clients; c && (i || !ISVISIBLE(c));
+		i -= ISVISIBLE(c) ? 1 : 0, p = c, c = c->next);
+	focus(c ? c : p);
+	restack(selmon);
+
 
 	/* 
 	 * Commenting
