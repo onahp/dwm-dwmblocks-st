@@ -2,8 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
+static const unsigned int snap      = 32;       /* snap pixel */ static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
@@ -28,6 +27,7 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_ecstasy,  col_ecstasy  },
 };
+
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
 	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
@@ -97,25 +97,37 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/local/bin/st", "-c", cmd, NULL } }
 
-/* commands */
+/* base commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
-/* static const char *termcmd[]  = { "st", NULL }; */
+static const char *termcmd[]  = { "st", NULL };
+
+/* scratchpad patch implementation */
 static const char scratchpadname[] = "scratchpad";
-static const char alacrittyname[] = "alacritty";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-static const char *alacritty[] = { "alacritty", "-T", alacrittyname, NULL };
+
+/* applications to launch from the shell */
 static const char *firefox[] = { "firefox", NULL };
+static const char *alacritty[] = { "alacritty", NULL };
+
+/* Zellij terminal multiplexer layout manager */
+static const char zlj_layout_main[] = "~/.config/zellij/layouts/tb_layout_main.kdl";
+static const char zlj_layout_db[] = "~/.config/zellij/layouts/tb_layout_db.kdl";
+
+/* Zellij terminal commands */
+static const char *zellij_main[] = { "zellij", "-l", zlj_layout_main, NULL };
+static const char *zellij_db[] = { "zellij", "-l", zlj_layout_db, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_grave,  togglescratch,  {.v = alacritty } },
+	/* { MODKEY,                       XK_grave,  togglescratch,  {.v = alacritty } }, */
 	/* { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } }, */
+  /* { MODKEY,                       XK_w,      spawn,          SHCMD("firefox")}, */
+  { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alacritty } },
+  { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = zellij_main } },
+  { MODKEY,                       XK_grave,  togglescratch,  {.v = alacritty } },
+  { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = firefox }},
-	/* { MODKEY,                       XK_w,      spawn,          SHCMD("firefox")}, */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
