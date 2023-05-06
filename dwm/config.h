@@ -109,6 +109,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 /* applications to launch from the shell */
 static const char *firefox[] = { "firefox", NULL };
 static const char *alacritty[] = { "alacritty", NULL };
+static const char *vlc[] = { "vlc", NULL };
 
 /* Zellij terminal multiplexer layout manager */
 static const char zlj_layout_main[] = "~/.config/zellij/layouts/tb_layout_main.kdl";
@@ -128,6 +129,7 @@ static Key keys[] = {
   { MODKEY,                       XK_grave,  togglescratch,  {.v = alacritty } },
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = firefox }},
+	{ MODKEY,                       XK_v,      spawn,          {.v = vlc }},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
@@ -157,7 +159,7 @@ static Key keys[] = {
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	/* { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, */
 	/* { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, */
 	/* { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, */
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
