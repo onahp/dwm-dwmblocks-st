@@ -111,21 +111,14 @@ static const char *firefox[] = { "firefox", NULL };
 static const char *alacritty[] = { "alacritty", NULL };
 static const char *vlc[] = { "vlc", NULL };
 
-/* Zellij terminal multiplexer layout manager */
-static const char zlj_layout_main[] = "~/.config/zellij/layouts/tb_layout_main.kdl";
-static const char zlj_layout_db[] = "~/.config/zellij/layouts/tb_layout_db.kdl";
-
-/* Zellij terminal commands */
-static const char *zellij_main[] = { "zellij", "-l", zlj_layout_main, NULL };
-static const char *zellij_db[] = { "zellij", "-l", zlj_layout_db, NULL };
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* { MODKEY,                       XK_grave,  togglescratch,  {.v = alacritty } }, */
 	/* { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } }, */
   /* { MODKEY,                       XK_w,      spawn,          SHCMD("firefox")}, */
+  /* { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = alacritty } }, */
+  /* { MODKEY,                       XK_m,      spawn,          {.v = pass }}, */
   { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alacritty } },
-  { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = zellij_main } },
   { MODKEY,                       XK_grave,  togglescratch,  {.v = alacritty } },
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = firefox }},
