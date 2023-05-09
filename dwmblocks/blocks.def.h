@@ -7,7 +7,7 @@ static const Block blocks[] = {
 
 	{"IP(L): ", "ifconfig | grep inet | awk '{print $2}' | grep 192",					5,		0},
 
-	//{"IP(E): ", "curl ifconfig.me",					5,		0},
+	{"IP(E): ", "curl ifconfig.me",					5,		0},
 
 	{"", "date '+%b %d (%a) %I:%M%p'",					5,		0},
 };
