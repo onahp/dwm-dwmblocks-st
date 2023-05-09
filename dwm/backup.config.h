@@ -10,17 +10,21 @@ static const unsigned int gappov    = 30;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=12" };
+static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
+/* static const char col_gray1[]       = "#0D1117"; */
+/* static const char col_gray2[]       = "#0D1117"; */
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const char col_ecstasy[]		= "#fb7e14";
+static const char col_ecstasy[]		= "#FF4800";
 static const char col_black[]		= "#000000";
-static const char col_codgray[]		= "#151515";
-static const char col_mineshaft[]	= "#292929";
+static const char col_codgray[]		= "#0D1117";
+static const char col_mineshaft[]	= "#0D1117";
+/* static const char col_codgray[]		= "#151515"; */
+/* static const char col_mineshaft[]	= "#292929"; */
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
