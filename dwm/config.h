@@ -118,6 +118,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 /* applications to launch from the shell */
 static const char *firefox[] = { "firefox", NULL };
 static const char *alacritty[] = { "alacritty", NULL };
+static const char *kitty[] = { "kitty", NULL };
 static const char *vlc[] = { "vlc", NULL };
 
 static Key keys[] = {
@@ -127,8 +128,8 @@ static Key keys[] = {
   /* { MODKEY,                       XK_w,      spawn,          SHCMD("firefox")}, */
   /* { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = alacritty } }, */
   /* { MODKEY,                       XK_m,      spawn,          {.v = pass }}, */
-  { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alacritty } },
-  { MODKEY,                       XK_grave,  togglescratch,  {.v = alacritty } },
+  { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = kitty } },
+  { MODKEY,                       XK_grave,  togglescratch,  {.v = kitty } },
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = firefox }},
 	{ MODKEY,                       XK_v,      spawn,          {.v = vlc }},
