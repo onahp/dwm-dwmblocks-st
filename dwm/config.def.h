@@ -103,7 +103,7 @@ static const Layout layouts[] = {
 	{ MOD, XK_q,     ACTION##stack, {.i = 0 } }, \
 	{ MOD, XK_a,     ACTION##stack, {.i = 1 } }, \
 	{ MOD, XK_z,     ACTION##stack, {.i = 2 } }, \
-	{ MOD, XK_x,     ACTION##stack, {.i = -1 } },
+	/* { MOD, XK_x,     ACTION##stack, {.i = -1 } }, */
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/local/bin/st", "-c", cmd, NULL } }
