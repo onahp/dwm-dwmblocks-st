@@ -121,7 +121,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static const char *firefox[] = { "firefox", NULL };
 static const char *alacritty[] = { "alacritty", NULL };
 static const char *kitty[] = { "kitty", NULL };
-static const char *sharenix[] = { "sharenix-section", NULL };
+static const char *flameshot[] = { "flameshot gui", NULL };
 static const char *vlc[] = { "vlc", NULL };
 
 static Key keys[] = {
@@ -136,7 +136,7 @@ static Key keys[] = {
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = firefox }},
 	{ MODKEY,                       XK_v,      spawn,          {.v = vlc }},
-	{ MODKEY,                       XK_s,      spawn,          {.v = sharenix }},
+	{ MODKEY,                       XK_s,      spawn,          {.v = flameshot }},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
